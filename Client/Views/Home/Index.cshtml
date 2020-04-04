@@ -1,11 +1,11 @@
 ﻿<!DOCTYPE html>
 <html>
 <body>
-	<p>"Hello, this is a test of Restful API"</p>
+	<h2>"Hello, this is a test of Restful API"</h2>
 	<h3>Click to test CRUD response</h3>
-	<button type="button">Post (Create)</button>
-	<button type="button">Get (Read)</button>
-	<button type="button">Put (Udpate)</button>
-	<button type="button">Delete (Delete)</button>
+	<input type="button" name="Post" onclick="location.href='@Url.Action("Post", "Home")'" value="Post (Insert)"/>
+	<input type="button" name="Get" onclick="location.href='@Url.Action("Get", "Home")'" value="Get (Select)"/>
+	<input type="button" name="Put" onclick="location.href='@Url.Action("Put", "Home")'" value="Put (Update)"/>
+	<input type="button" name="Delete" onclick="location.href='@Url.Action("Delete", "Home")'" value="Delete (Delete)"/>
 </body>
 </html>
