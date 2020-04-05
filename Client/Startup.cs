@@ -22,7 +22,6 @@ namespace Client
             app.UseRouting();
             app.UseMvcWithDefaultRoute();
             
-
             //app.UseEndpoints(endpoints =>
             //{
             //    endpoints.MapGet("/", async context =>
