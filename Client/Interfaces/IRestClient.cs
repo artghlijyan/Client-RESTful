@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 
 namespace Client.Interfaces
 {
@@ -11,8 +8,8 @@ namespace Client.Interfaces
 
         Task<string> Get();
 
-        Task<string> Put();
+        Task<string> Put(int id);
 
-        Task<string> Delete();
+        Task<string> Delete(int id);
     }
 }
