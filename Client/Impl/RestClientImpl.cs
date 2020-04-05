@@ -8,16 +8,17 @@ namespace Client.Impl
 {
     public class RestClientImpl : IRestClient
     {
-        readonly string restUrl = "https://localhost:44357/";
-        string requestMessage = null;
-        HttpClient client;
+        static readonly string restUrl = "https://localhost:44357/";
+        static string requestMessage = null;
+        static HttpClient client;
 
-        async Task<string> IRestClient.Post(int number)
+        async Task<string> IRestClient.Post(int id)
         {
             using (client = new HttpClient())
             {
                 client.BaseAddress = new Uri(restUrl);
-                HttpResponseMessage response = client.PostAsJsonAsync("api/rest/post", number).Result;
+
+                HttpResponseMessage response = await client.PostAsJsonAsync("api/rest/post/id", id);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -42,10 +43,7 @@ namespace Client.Impl
             using (client = new HttpClient())
             {
                 client.BaseAddress = new Uri(restUrl);
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                HttpResponseMessage response = await client.GetAsync("api/rest/get");
+                HttpResponseMessage response = await client.GetAsync("api/rest/get/");
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -70,7 +68,7 @@ namespace Client.Impl
             using (client = new HttpClient())
             {
                 client.BaseAddress = new Uri(restUrl);
-                HttpResponseMessage response = client.PutAsJsonAsync("api/rest/put", id).Result;
+                HttpResponseMessage response = await client.PutAsJsonAsync("api/rest/put/id", id);
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -94,8 +92,8 @@ namespace Client.Impl
         {
             using (client = new HttpClient())
             {
-                client.BaseAddress = new Uri("http://localhost:1565/");
-                HttpResponseMessage response = client.DeleteAsync("api/rest/delete").Result;
+                client.BaseAddress = new Uri(restUrl);
+                HttpResponseMessage response = await client.DeleteAsync($"api/rest/delete/{id}");
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -110,9 +108,9 @@ namespace Client.Impl
                         return "Could not connect te RESTful Api";
                     }
                 }
-            }
 
-            return requestMessage;
+                return requestMessage;
+            }
         }
     }
 }

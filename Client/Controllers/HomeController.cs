@@ -1,35 +1,36 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Client.Interfaces;
+using Client.Impl;
 
 namespace Client.Controllers
 {
     public class HomeController : Controller
     {
-        IRestClient restClient;
+        IRestClient restClient = new RestClientImpl();
 
         public IActionResult Index()
         {
             return View();
         }
 
-        public string Post(int id)
+        public string Post()
         {
-            return restClient.Post(id).ToString();
+            return restClient.Post(1).Result.ToString();
         }
 
         public string Get()
         {
-            return restClient.Get().ToString();
+            return restClient.Get().Result.ToString();
         }
 
-        public string Put(int id)
+        public string Put()
         {
-            return restClient.Put(id).ToString();
+            return restClient.Put(2).Result.ToString();
         }
 
-        public string Delete(int id)
+        public string Delete()
         {
-            return restClient.Delete(id).ToString();
+            return restClient.Delete(3).Result.ToString();
         }
     }
 }

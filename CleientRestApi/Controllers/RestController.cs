@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System.Web.Http;
 
 namespace CleientRestApi.Controllers
 {
@@ -26,7 +25,7 @@ namespace CleientRestApi.Controllers
         }
 
         [HttpDelete("Delete/{id}")]
-        public string Delete([FromUri] int id)
+        public string Delete(int id)
         {
             return $"Id = {id}, is successfully Deleted";
         }
