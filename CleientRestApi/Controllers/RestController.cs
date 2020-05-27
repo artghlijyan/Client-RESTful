@@ -6,9 +6,9 @@ namespace CleientRestApi.Controllers
     [Route("api/rest/")]
     public class RestController : ControllerBase
     {
-        [HttpPost("Post/{id}")]
+        [HttpPost("{id}")]
         public string Post([FromBody] int id)
-        {
+        { 
             return $"Id = {id}, is successfully Posted/Inserted";
         }
 
