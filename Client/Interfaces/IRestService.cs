@@ -2,7 +2,7 @@
 
 namespace Client.Interfaces
 {
-    public interface IRestClient
+    public interface IRestService
     {
         Task<string> Post(int number);
 

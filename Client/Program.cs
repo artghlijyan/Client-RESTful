@@ -2,7 +2,7 @@ using System.Net.Http;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace Client
+namespace ClientInterfaces
 {
     public class Program
     {

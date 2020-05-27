@@ -1,17 +1,16 @@
-﻿using Client.Interfaces;
-using System;
+﻿using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Client.Impl
+namespace Client.Interfaces.Impl
 {
-    public class RestClientImpl : IRestClient
+    public class RestServiceImpl : IRestService
     {
         static readonly string restUrl = "https://localhost:44357/";
         static string requestMessage = null;
         static HttpClient client;
 
-        async Task<string> IRestClient.Post(int id)
+        async Task<string> IRestService.Post(int id)
         {
             using (client = new HttpClient())
             {
@@ -37,7 +36,7 @@ namespace Client.Impl
             return requestMessage;
         }
 
-        async Task<string> IRestClient.Get()
+        async Task<string> IRestService.Get()
         {
             using (client = new HttpClient())
             {
@@ -62,7 +61,7 @@ namespace Client.Impl
             return requestMessage;
         }
 
-        async Task<string> IRestClient.Put(int id)
+        async Task<string> IRestService.Put(int id)
         {
             using (client = new HttpClient())
             {
@@ -87,7 +86,7 @@ namespace Client.Impl
             return requestMessage;
         }
 
-        async Task<string> IRestClient.Delete(int id)
+        async Task<string> IRestService.Delete(int id)
         {
             using (client = new HttpClient())
             {
