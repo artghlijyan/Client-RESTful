@@ -6,16 +6,16 @@ namespace CleientRestApi.Controllers
     [Route("api/rest/")]
     public class RestController : ControllerBase
     {
-        [HttpPost("{id}")]
-        public string Post([FromBody] int id)
-        { 
-            return $"Id = {id}, is successfully Posted/Inserted";
-        }
-
         [HttpGet("Get")]
         public string Get()
         {
             return "Succesfully called RESTful Get method";
+        }
+
+        [HttpPost("Post/{id}")]
+        public string Post([FromBody] int id)
+        { 
+            return $"Id = {id}, is successfully Posted/Inserted";
         }
                 
         [HttpPut("Put/{id}")]
