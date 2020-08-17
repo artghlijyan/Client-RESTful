@@ -6,9 +6,9 @@ namespace Client.Interfaces.Impl
 {
     public class RestServiceImpl : IRestService
     {
-        static readonly string restUrl = "https://localhost:44357/";
-        static string requestMessage = null;
-        static HttpClient client;
+        private static readonly string restUrl = "https://localhost:44357/";
+        private string requestMessage = null;
+        private HttpClient client = null;
 
         async Task<string> IRestService.Post(int id)
         {
@@ -28,7 +28,7 @@ namespace Client.Interfaces.Impl
                     }
                     else
                     {
-                        return "Could not connect te RESTful Api";
+                        return "Could not connect te RESTApi";
                     }
                 }
             }
